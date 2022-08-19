@@ -1,0 +1,181 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+
+<head>
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+	<title>Registeration Form Demo Code</title>
+	<!--<link rel="stylesheet" href="">  -->
+
+	<style type="text/css">
+		body {
+			background-color: #f4f4f4;
+			color: #5a5656;
+			font-family: 'Open Sans', Arial, Helvetica, sans-serif;
+			font-size: 16px;
+			line-height: 1.5em;
+		}
+
+		a {
+			text-decoration: none;
+		}
+
+		h1 {
+			font-size: 1em;
+		}
+
+		h1,
+		p {
+			margin-bottom: 10px;
+		}
+
+		strong {
+			font-weight: bold;
+		}
+
+		.uppercase {
+			text-transform: uppercase;
+		}
+
+		/* ---------- Registration Form ---------- */
+		#Registration {
+			margin: 50px auto;
+			width: 300px;
+		}
+	</style>
+</head>
+
+<body>
+	</script>
+	<fieldset>
+		<legend>Registration Form</legend>
+		<form id="form__submit"  name="registration" method="post" action="add">
+
+			<!--<form name="registration" method="post" action="https://localhost:5000/api/get"> -->
+
+			<p>
+				<label for="Applicant Name">Applicant Name </label>
+				<input type="text" name="txtApplicant Name" id="ApplicantName">
+			</p>
+			<p>
+				<label for="UserName">UserName </label>
+				<input type="text" name="txtUserName" id="txtUserName">
+			</p>
+			<label for="Password">Password </label>
+			<input type="Password" name="txtPassword" id="txtPassword">
+			</p>
+			<p>
+				<label for="Email">Email ID</label>
+				<input type="email" id="email" class="form-control" name="email" id="email" required>
+			</p>
+			<p>
+				<label for="Mobile">Mobile</label>
+				<input type="text" name="txtMobile" id="txtMobile">
+			</p>
+			<p>
+				<label for="User Type">User Type</label>
+				<select name="usertype" id="101">
+					<option value="Admin"> Admin</option>
+					<option value="Clerk">Clerk </option>
+					<option value="NonEmployee">NonEmployee</option>
+					<option value="Client">Client</option>
+				</select>
+			</p>
+			<p>&nbsp;</p>
+			<p>
+				<input type="submit" value="Submit form" onclick="myFun()">
+			</p>
+		</form>
+	</fieldset>
+
+	<script type="text/javascript">
+		let requestOptions;
+
+		// const sendData = async () => {
+		// 	const response = await fetch("http://localhost:5000/add", requestOptions)
+		// 	const data = await response.json();
+		// 	console.log(data)
+		// }
+		function myFun(e) {
+			console.log(e)
+			e.preventDefault()
+			const applicantname = document.getElementById("applicantname").value;
+			const username = document.getElementById("username").value;
+			const email = document.getElementById("email").value;
+			const password = document.getElementById("password").value;
+			const mobile = document.getElementById("mobile").value;
+			const usertype = document.getElementById("usertype").value;
+			console.log(applicantname,username,email,password,mobile,usertype)
+			requestOptions = {
+				method: 'POST',
+				headers: { 'Content-Type': 'application/json' },
+				body: JSON.stringify({ applicantname: applicantname , username: username ,
+				email: email , password: password ,
+				mobile: mobile ,usertype: usertype })
+			};
+			sendData()
+
+		}
+
+		// function AddRow() {
+		// 	var list1 = [];
+		// 	var list2 = [];
+		// 	var list3 = [];
+		// 	var list4 = [];
+		// 	var list5 = [];
+		// 	var list6 = [];
+		// 	var n = 1;
+		// 	var x = 0;
+
+		// 	var AddRown = document.getElementById("Show");
+		// 	var NewRow = AddRown.inserRow(n);
+		// 	lsit1[x] = document.getElementById("ApplicantName").value;
+		// 	lsit2[x] = document.getElementById("UserName").value;
+		// 	lsit3[x] = document.getElementById("Email").value;
+		// 	lsit4[x] = document.getElementById("Password").value;
+		// 	lsit5[x] = document.getElementById("Mobile").value;
+		// 	lsit6[x] = document.getElementById("usertype").value;
+
+		// 	var cel1 = NewRow.insertCell(0);
+		// 	var cel2 = NewRow.insertCell(1);
+		// 	var cel3 = NewRow.insertCell(2);
+		// 	var cel4 = NewRow.insertCell(3);
+		// 	var cel5 = NewRow.insertCell(4);
+		// 	var cel6 = NewRow.insertCell(5);
+
+		// 	cel1.innerHTML = list1[x];
+		// 	cel2.innerHTML = list2[x];
+		// 	cel3.innerHTML = list3[x];
+		// 	cel4.innerHTML = list4[x];
+		// 	cel5.innerHTML = list5[x];
+		// 	cel6.innerHTML = list6[x];
+
+		// 	n++;
+		// 	x++;
+
+
+		// }
+	</script>
+</body>
+
+</html>
+<!-- var mySQLClient = require('mysql');
+			var properties = new mySQLClient.ConnectionProperties('mysql');
+			properties.user = 'root';
+			properties.password = '  ';
+			mySQLClient.openSession(properties, onOpenSession);
+
+
+			var ApplicantName = document.registration.ApplicantName;
+			
+			console.log(applicantname,UserName,Email,Password,Mobile,usertype);
+			// ('"+name+"', '"+email+"','"+username+"')";
+
+		// 	var data ="INSERT INTO userinfo {'ApplicantName': 'John Pinto', 'UserName': 'John Pinto','Email':'johnpinto@gmail.com','Password:':'john123','Mobile':9080706050,'usertype':'nonemployee'}";
+		// session.save('userinfo', data, onInsert)
+ var sql = "INSERT INTO userinfo (ApplicantName,UserName,Email,Password,Mobile,usertype) VALUES ('"+John pinto+"' ,'"+John pinto+"','"+johnpinto@gmail.com+"','"+john123+"','"+9080706050+"','"+nonemployee+"')";
+                con.query(sql, function (err, result) 
+                {
+                    if (err) throw err;
+                        console.log("1 record inserted Data submitted successfully....");
+                 });
+        } -->
