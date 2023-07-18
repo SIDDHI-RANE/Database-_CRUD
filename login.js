@@ -9,7 +9,7 @@ login.use(bodyParser.json());
 //parse application/json
 login.use(bodyParser.json());
 
-//Database Connection
+//Database Connection 
 const con = mysql.createConnection({
   host: 'localhost',
   user: 'root',                         /* MySQL User */
